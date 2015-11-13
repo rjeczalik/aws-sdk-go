@@ -1879,6 +1879,10 @@ type metadataCompleteMultipartUploadInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"MultipartUpload"`
 }
 
+func (t CompleteMultipartUploadInput) PayloadField() string {
+	return "MultipartUpload"
+}
+
 // String returns the string representation
 func (s CompleteMultipartUploadInput) String() string {
 	return awsutil.Prettify(s)
@@ -2187,6 +2191,10 @@ type metadataCopyObjectOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"CopyObjectResult"`
 }
 
+func (t CopyObjectOutput) PayloadField() string {
+	return "CopyObjectResult"
+}
+
 // String returns the string representation
 func (s CopyObjectOutput) String() string {
 	return awsutil.Prettify(s)
@@ -2294,6 +2302,10 @@ type CreateBucketInput struct {
 
 type metadataCreateBucketInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"CreateBucketConfiguration"`
+}
+
+func (t CreateBucketInput) PayloadField() string {
+	return "CreateBucketConfiguration"
 }
 
 // String returns the string representation
@@ -2884,6 +2896,10 @@ type metadataDeleteObjectsInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Delete"`
 }
 
+func (t DeleteObjectsInput) PayloadField() string {
+	return "Delete"
+}
+
 // String returns the string representation
 func (s DeleteObjectsInput) String() string {
 	return awsutil.Prettify(s)
@@ -3341,6 +3357,10 @@ type metadataGetBucketPolicyOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Policy"`
 }
 
+func (t GetBucketPolicyOutput) PayloadField() string {
+	return "Policy"
+}
+
 // String returns the string representation
 func (s GetBucketPolicyOutput) String() string {
 	return awsutil.Prettify(s)
@@ -3381,6 +3401,10 @@ type GetBucketReplicationOutput struct {
 
 type metadataGetBucketReplicationOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"ReplicationConfiguration"`
+}
+
+func (t GetBucketReplicationOutput) PayloadField() string {
+	return "ReplicationConfiguration"
 }
 
 // String returns the string representation
@@ -3811,6 +3835,10 @@ type metadataGetObjectOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Body"`
 }
 
+func (t GetObjectOutput) PayloadField() string {
+	return "Body"
+}
+
 // String returns the string representation
 func (s GetObjectOutput) String() string {
 	return awsutil.Prettify(s)
@@ -3861,6 +3889,10 @@ type GetObjectTorrentOutput struct {
 
 type metadataGetObjectTorrentOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Body"`
+}
+
+func (t GetObjectTorrentOutput) PayloadField() string {
+	return "Body"
 }
 
 // String returns the string representation
@@ -5143,6 +5175,10 @@ type metadataPutBucketAclInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"AccessControlPolicy"`
 }
 
+func (t PutBucketAclInput) PayloadField() string {
+	return "AccessControlPolicy"
+}
+
 // String returns the string representation
 func (s PutBucketAclInput) String() string {
 	return awsutil.Prettify(s)
@@ -5181,6 +5217,10 @@ type PutBucketCorsInput struct {
 
 type metadataPutBucketCorsInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"CORSConfiguration"`
+}
+
+func (t PutBucketCorsInput) PayloadField() string {
+	return "CORSConfiguration"
 }
 
 // String returns the string representation
@@ -5223,6 +5263,10 @@ type metadataPutBucketLifecycleConfigurationInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"LifecycleConfiguration"`
 }
 
+func (t PutBucketLifecycleConfigurationInput) PayloadField() string {
+	return "LifecycleConfiguration"
+}
+
 // String returns the string representation
 func (s PutBucketLifecycleConfigurationInput) String() string {
 	return awsutil.Prettify(s)
@@ -5263,6 +5307,10 @@ type metadataPutBucketLifecycleInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"LifecycleConfiguration"`
 }
 
+func (t PutBucketLifecycleInput) PayloadField() string {
+	return "LifecycleConfiguration"
+}
+
 // String returns the string representation
 func (s PutBucketLifecycleInput) String() string {
 	return awsutil.Prettify(s)
@@ -5301,6 +5349,10 @@ type PutBucketLoggingInput struct {
 
 type metadataPutBucketLoggingInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"BucketLoggingStatus"`
+}
+
+func (t PutBucketLoggingInput) PayloadField() string {
+	return "BucketLoggingStatus"
 }
 
 // String returns the string representation
@@ -5345,6 +5397,10 @@ type metadataPutBucketNotificationConfigurationInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"NotificationConfiguration"`
 }
 
+func (t PutBucketNotificationConfigurationInput) PayloadField() string {
+	return "NotificationConfiguration"
+}
+
 // String returns the string representation
 func (s PutBucketNotificationConfigurationInput) String() string {
 	return awsutil.Prettify(s)
@@ -5383,6 +5439,10 @@ type PutBucketNotificationInput struct {
 
 type metadataPutBucketNotificationInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"NotificationConfiguration"`
+}
+
+func (t PutBucketNotificationInput) PayloadField() string {
+	return "NotificationConfiguration"
 }
 
 // String returns the string representation
@@ -5424,6 +5484,10 @@ type PutBucketPolicyInput struct {
 
 type metadataPutBucketPolicyInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Policy"`
+}
+
+func (t PutBucketPolicyInput) PayloadField() string {
+	return "Policy"
 }
 
 // String returns the string representation
@@ -5468,6 +5532,10 @@ type metadataPutBucketReplicationInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"ReplicationConfiguration"`
 }
 
+func (t PutBucketReplicationInput) PayloadField() string {
+	return "ReplicationConfiguration"
+}
+
 // String returns the string representation
 func (s PutBucketReplicationInput) String() string {
 	return awsutil.Prettify(s)
@@ -5508,6 +5576,10 @@ type metadataPutBucketRequestPaymentInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"RequestPaymentConfiguration"`
 }
 
+func (t PutBucketRequestPaymentInput) PayloadField() string {
+	return "RequestPaymentConfiguration"
+}
+
 // String returns the string representation
 func (s PutBucketRequestPaymentInput) String() string {
 	return awsutil.Prettify(s)
@@ -5546,6 +5618,10 @@ type PutBucketTaggingInput struct {
 
 type metadataPutBucketTaggingInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Tagging"`
+}
+
+func (t PutBucketTaggingInput) PayloadField() string {
+	return "Tagging"
 }
 
 // String returns the string representation
@@ -5592,6 +5668,10 @@ type metadataPutBucketVersioningInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"VersioningConfiguration"`
 }
 
+func (t PutBucketVersioningInput) PayloadField() string {
+	return "VersioningConfiguration"
+}
+
 // String returns the string representation
 func (s PutBucketVersioningInput) String() string {
 	return awsutil.Prettify(s)
@@ -5630,6 +5710,10 @@ type PutBucketWebsiteInput struct {
 
 type metadataPutBucketWebsiteInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"WebsiteConfiguration"`
+}
+
+func (t PutBucketWebsiteInput) PayloadField() string {
+	return "WebsiteConfiguration"
 }
 
 // String returns the string representation
@@ -5697,6 +5781,10 @@ type PutObjectAclInput struct {
 
 type metadataPutObjectAclInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"AccessControlPolicy"`
+}
+
+func (t PutObjectAclInput) PayloadField() string {
+	return "AccessControlPolicy"
 }
 
 // String returns the string representation
@@ -5825,6 +5913,10 @@ type PutObjectInput struct {
 
 type metadataPutObjectInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Body"`
+}
+
+func (t PutObjectInput) PayloadField() string {
+	return "Body"
 }
 
 // String returns the string representation
@@ -6118,6 +6210,10 @@ type RestoreObjectInput struct {
 
 type metadataRestoreObjectInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"RestoreRequest"`
+}
+
+func (t RestoreObjectInput) PayloadField() string {
+	return "RestoreRequest"
 }
 
 // String returns the string representation
@@ -6534,6 +6630,10 @@ type metadataUploadPartCopyOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"CopyPartResult"`
 }
 
+func (t UploadPartCopyOutput) PayloadField() string {
+	return "CopyPartResult"
+}
+
 // String returns the string representation
 func (s UploadPartCopyOutput) String() string {
 	return awsutil.Prettify(s)
@@ -6589,6 +6689,10 @@ type UploadPartInput struct {
 
 type metadataUploadPartInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Body"`
+}
+
+func (t UploadPartInput) PayloadField() string {
+	return "Body"
 }
 
 // String returns the string representation

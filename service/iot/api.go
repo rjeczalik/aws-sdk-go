@@ -1751,6 +1751,10 @@ type metadataCreateTopicRuleInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"TopicRulePayload"`
 }
 
+func (t CreateTopicRuleInput) PayloadField() string {
+	return "TopicRulePayload"
+}
+
 // String returns the string representation
 func (s CreateTopicRuleInput) String() string {
 	return awsutil.Prettify(s)
@@ -3116,6 +3120,10 @@ type metadataReplaceTopicRuleInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"TopicRulePayload"`
 }
 
+func (t ReplaceTopicRuleInput) PayloadField() string {
+	return "TopicRulePayload"
+}
+
 // String returns the string representation
 func (s ReplaceTopicRuleInput) String() string {
 	return awsutil.Prettify(s)
@@ -3250,6 +3258,10 @@ type SetLoggingOptionsInput struct {
 
 type metadataSetLoggingOptionsInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"LoggingOptionsPayload"`
+}
+
+func (t SetLoggingOptionsInput) PayloadField() string {
+	return "LoggingOptionsPayload"
 }
 
 // String returns the string representation

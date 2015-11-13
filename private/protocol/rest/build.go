@@ -93,25 +93,26 @@ func buildLocationElements(r *request.Request, v reflect.Value) {
 }
 
 func buildBody(r *request.Request, v reflect.Value) {
-	if field, ok := v.Type().FieldByName("SDKShapeTraits"); ok {
-		if payloadName := field.Tag.Get("payload"); payloadName != "" {
-			pfield, _ := v.Type().FieldByName(payloadName)
-			if ptag := pfield.Tag.Get("type"); ptag != "" && ptag != "structure" {
-				payload := reflect.Indirect(v.FieldByName(payloadName))
-				if payload.IsValid() && payload.Interface() != nil {
-					switch reader := payload.Interface().(type) {
-					case io.ReadSeeker:
-						r.SetReaderBody(reader)
-					case []byte:
-						r.SetBufferBody(reader)
-					case string:
-						r.SetStringBody(reader)
-					default:
-						r.Error = awserr.New("SerializationError",
-							"failed to encode REST request",
-							fmt.Errorf("unknown payload type %s", payload.Type()))
-					}
-				}
+	payloadName := PayloadFieldName(v.Interface())
+	if payloadName == "" {
+		return
+	}
+
+	pfield, _ := v.Type().FieldByName(payloadName)
+	if ptag := pfield.Tag.Get("type"); ptag != "" && ptag != "structure" {
+		payload := reflect.Indirect(v.FieldByName(payloadName))
+		if payload.IsValid() && payload.Interface() != nil {
+			switch reader := payload.Interface().(type) {
+			case io.ReadSeeker:
+				r.SetReaderBody(reader)
+			case []byte:
+				r.SetBufferBody(reader)
+			case string:
+				r.SetStringBody(reader)
+			default:
+				r.Error = awserr.New("SerializationError",
+					"failed to encode REST request",
+					fmt.Errorf("unknown payload type %s", payload.Type()))
 			}
 		}
 	}

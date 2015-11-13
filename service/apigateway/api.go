@@ -3858,6 +3858,10 @@ type metadataGetSdkOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Body"`
 }
 
+func (t GetSdkOutput) PayloadField() string {
+	return "Body"
+}
+
 // String returns the string representation
 func (s GetSdkOutput) String() string {
 	return awsutil.Prettify(s)

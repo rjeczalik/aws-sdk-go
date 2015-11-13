@@ -31,6 +31,7 @@ func UnmarshalJSON(v interface{}, stream io.Reader) error {
 }
 
 func unmarshalAny(value reflect.Value, data interface{}, tag reflect.StructTag) error {
+	pVal := value
 	vtype := value.Type()
 	if vtype.Kind() == reflect.Ptr {
 		vtype = vtype.Elem() // check kind of actual element type
@@ -56,10 +57,13 @@ func unmarshalAny(value reflect.Value, data interface{}, tag reflect.StructTag) 
 
 	switch t {
 	case "structure":
-		if field, ok := vtype.FieldByName("SDKShapeTraits"); ok {
-			tag = field.Tag
+		payloadField := ""
+		if t, ok := pVal.Interface().(interface {
+			PayloadField() string
+		}); ok {
+			payloadField = t.PayloadField()
 		}
-		return unmarshalStruct(value, data, tag)
+		return unmarshalStruct(value, data, payloadField)
 	case "list":
 		return unmarshalList(value, data, tag)
 	case "map":
@@ -69,7 +73,7 @@ func unmarshalAny(value reflect.Value, data interface{}, tag reflect.StructTag) 
 	}
 }
 
-func unmarshalStruct(value reflect.Value, data interface{}, tag reflect.StructTag) error {
+func unmarshalStruct(value reflect.Value, data interface{}, payload string) error {
 	if data == nil {
 		return nil
 	}
@@ -91,7 +95,7 @@ func unmarshalStruct(value reflect.Value, data interface{}, tag reflect.StructTa
 	}
 
 	// unwrap any payloads
-	if payload := tag.Get("payload"); payload != "" {
+	if payload != "" {
 		field, _ := t.FieldByName(payload)
 		return unmarshalAny(value.FieldByName(payload), data, field.Tag)
 	}

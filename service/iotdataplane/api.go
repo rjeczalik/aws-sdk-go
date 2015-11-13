@@ -162,6 +162,10 @@ type metadataDeleteThingShadowOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Payload"`
 }
 
+func (t DeleteThingShadowOutput) PayloadField() string {
+	return "Payload"
+}
+
 // String returns the string representation
 func (s DeleteThingShadowOutput) String() string {
 	return awsutil.Prettify(s)
@@ -206,6 +210,10 @@ type metadataGetThingShadowOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Payload"`
 }
 
+func (t GetThingShadowOutput) PayloadField() string {
+	return "Payload"
+}
+
 // String returns the string representation
 func (s GetThingShadowOutput) String() string {
 	return awsutil.Prettify(s)
@@ -232,6 +240,10 @@ type PublishInput struct {
 
 type metadataPublishInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Payload"`
+}
+
+func (t PublishInput) PayloadField() string {
+	return "Payload"
 }
 
 // String returns the string representation
@@ -277,6 +289,10 @@ type metadataUpdateThingShadowInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Payload"`
 }
 
+func (t UpdateThingShadowInput) PayloadField() string {
+	return "Payload"
+}
+
 // String returns the string representation
 func (s UpdateThingShadowInput) String() string {
 	return awsutil.Prettify(s)
@@ -297,6 +313,10 @@ type UpdateThingShadowOutput struct {
 
 type metadataUpdateThingShadowOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Payload"`
+}
+
+func (t UpdateThingShadowOutput) PayloadField() string {
+	return "Payload"
 }
 
 // String returns the string representation

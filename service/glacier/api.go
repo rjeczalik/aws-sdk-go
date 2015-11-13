@@ -2437,6 +2437,10 @@ type metadataGetJobOutputOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Body"`
 }
 
+func (t GetJobOutputOutput) PayloadField() string {
+	return "Body"
+}
+
 // String returns the string representation
 func (s GetJobOutputOutput) String() string {
 	return awsutil.Prettify(s)
@@ -2486,6 +2490,10 @@ type GetVaultAccessPolicyOutput struct {
 
 type metadataGetVaultAccessPolicyOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Policy"`
+}
+
+func (t GetVaultAccessPolicyOutput) PayloadField() string {
+	return "Policy"
 }
 
 // String returns the string representation
@@ -2602,6 +2610,10 @@ type metadataGetVaultNotificationsOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"VaultNotificationConfig"`
 }
 
+func (t GetVaultNotificationsOutput) PayloadField() string {
+	return "VaultNotificationConfig"
+}
+
 // String returns the string representation
 func (s GetVaultNotificationsOutput) String() string {
 	return awsutil.Prettify(s)
@@ -2632,6 +2644,10 @@ type InitiateJobInput struct {
 
 type metadataInitiateJobInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"JobParameters"`
+}
+
+func (t InitiateJobInput) PayloadField() string {
+	return "JobParameters"
 }
 
 // String returns the string representation
@@ -2757,6 +2773,10 @@ type InitiateVaultLockInput struct {
 
 type metadataInitiateVaultLockInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Policy"`
+}
+
+func (t InitiateVaultLockInput) PayloadField() string {
+	return "Policy"
 }
 
 // String returns the string representation
@@ -3520,6 +3540,10 @@ type metadataSetVaultAccessPolicyInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Policy"`
 }
 
+func (t SetVaultAccessPolicyInput) PayloadField() string {
+	return "Policy"
+}
+
 // String returns the string representation
 func (s SetVaultAccessPolicyInput) String() string {
 	return awsutil.Prettify(s)
@@ -3569,6 +3593,10 @@ type SetVaultNotificationsInput struct {
 
 type metadataSetVaultNotificationsInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"VaultNotificationConfig"`
+}
+
+func (t SetVaultNotificationsInput) PayloadField() string {
+	return "VaultNotificationConfig"
 }
 
 // String returns the string representation
@@ -3625,6 +3653,10 @@ type UploadArchiveInput struct {
 
 type metadataUploadArchiveInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Body"`
+}
+
+func (t UploadArchiveInput) PayloadField() string {
+	return "Body"
 }
 
 // String returns the string representation
@@ -3706,6 +3738,10 @@ type UploadMultipartPartInput struct {
 
 type metadataUploadMultipartPartInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Body"`
+}
+
+func (t UploadMultipartPartInput) PayloadField() string {
+	return "Body"
 }
 
 // String returns the string representation

@@ -346,6 +346,14 @@ func (s *Shape) GoCode() string {
 		code += "SDKShapeTraits bool " + ref.GoTags(true, false)
 		code += "}"
 
+		if ref.Shape.Payload != "" {
+			code += fmt.Sprintf(`
+			func (t %s) PayloadField() string {
+				return "%s"
+			}
+			`, ref.ShapeName, ref.Shape.Payload)
+		}
+
 		if !s.API.NoStringerMethods {
 			code += s.goCodeStringers()
 		}

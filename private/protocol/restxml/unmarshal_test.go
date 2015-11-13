@@ -965,6 +965,10 @@ type metadataOutputService9TestShapeOutputService9TestCaseOperation1Output struc
 	SDKShapeTraits bool `type:"structure" payload:"Data"`
 }
 
+func (t OutputService9TestShapeOutputService9TestCaseOperation1Output) PayloadField() string {
+	return "Data"
+}
+
 type OutputService9TestShapeSingleStructure struct {
 	Foo *string `type:"string"`
 
@@ -1069,6 +1073,10 @@ type OutputService10TestShapeOutputService10TestCaseOperation1Output struct {
 
 type metadataOutputService10TestShapeOutputService10TestCaseOperation1Output struct {
 	SDKShapeTraits bool `type:"structure" payload:"Stream"`
+}
+
+func (t OutputService10TestShapeOutputService10TestCaseOperation1Output) PayloadField() string {
+	return "Stream"
 }
 
 //The service client's operations are safe to be used concurrently.

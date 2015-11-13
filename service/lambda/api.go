@@ -1643,6 +1643,10 @@ type metadataInvokeAsyncInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"InvokeArgs"`
 }
 
+func (t InvokeAsyncInput) PayloadField() string {
+	return "InvokeArgs"
+}
+
 // String returns the string representation
 func (s InvokeAsyncInput) String() string {
 	return awsutil.Prettify(s)
@@ -1730,6 +1734,10 @@ type metadataInvokeInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Payload"`
 }
 
+func (t InvokeInput) PayloadField() string {
+	return "Payload"
+}
+
 // String returns the string representation
 func (s InvokeInput) String() string {
 	return awsutil.Prettify(s)
@@ -1774,6 +1782,10 @@ type InvokeOutput struct {
 
 type metadataInvokeOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Payload"`
+}
+
+func (t InvokeOutput) PayloadField() string {
+	return "Payload"
 }
 
 // String returns the string representation

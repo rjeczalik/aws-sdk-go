@@ -33,41 +33,43 @@ func UnmarshalMeta(r *request.Request) {
 }
 
 func unmarshalBody(r *request.Request, v reflect.Value) {
-	if field, ok := v.Type().FieldByName("SDKShapeTraits"); ok {
-		if payloadName := field.Tag.Get("payload"); payloadName != "" {
-			pfield, _ := v.Type().FieldByName(payloadName)
-			if ptag := pfield.Tag.Get("type"); ptag != "" && ptag != "structure" {
-				payload := v.FieldByName(payloadName)
-				if payload.IsValid() {
-					switch payload.Interface().(type) {
-					case []byte:
-						b, err := ioutil.ReadAll(r.HTTPResponse.Body)
-						if err != nil {
-							r.Error = awserr.New("SerializationError", "failed to decode REST response", err)
-						} else {
-							payload.Set(reflect.ValueOf(b))
-						}
-					case *string:
-						b, err := ioutil.ReadAll(r.HTTPResponse.Body)
-						if err != nil {
-							r.Error = awserr.New("SerializationError", "failed to decode REST response", err)
-						} else {
-							str := string(b)
-							payload.Set(reflect.ValueOf(&str))
-						}
-					default:
-						switch payload.Type().String() {
-						case "io.ReadSeeker":
-							payload.Set(reflect.ValueOf(aws.ReadSeekCloser(r.HTTPResponse.Body)))
-						case "aws.ReadSeekCloser", "io.ReadCloser":
-							payload.Set(reflect.ValueOf(r.HTTPResponse.Body))
-						default:
-							r.Error = awserr.New("SerializationError",
-								"failed to decode REST response",
-								fmt.Errorf("unknown payload type %s", payload.Type()))
-						}
-					}
-				}
+	payloadName := PayloadFieldName(v.Interface())
+	if payloadName == "" {
+		return
+	}
+
+	pfield, _ := v.Type().FieldByName(payloadName)
+	if ptag := pfield.Tag.Get("type"); ptag != "" && ptag != "structure" {
+		payload := v.FieldByName(payloadName)
+		if !payload.IsValid() {
+			return
+		}
+		switch payload.Interface().(type) {
+		case []byte:
+			b, err := ioutil.ReadAll(r.HTTPResponse.Body)
+			if err != nil {
+				r.Error = awserr.New("SerializationError", "failed to decode REST response", err)
+			} else {
+				payload.Set(reflect.ValueOf(b))
+			}
+		case *string:
+			b, err := ioutil.ReadAll(r.HTTPResponse.Body)
+			if err != nil {
+				r.Error = awserr.New("SerializationError", "failed to decode REST response", err)
+			} else {
+				str := string(b)
+				payload.Set(reflect.ValueOf(&str))
+			}
+		default:
+			switch payload.Type().String() {
+			case "io.ReadSeeker":
+				payload.Set(reflect.ValueOf(aws.ReadSeekCloser(r.HTTPResponse.Body)))
+			case "aws.ReadSeekCloser", "io.ReadCloser":
+				payload.Set(reflect.ValueOf(r.HTTPResponse.Body))
+			default:
+				r.Error = awserr.New("SerializationError",
+					"failed to decode REST response",
+					fmt.Errorf("unknown payload type %s", payload.Type()))
 			}
 		}
 	}

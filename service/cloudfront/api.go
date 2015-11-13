@@ -1000,6 +1000,10 @@ type metadataCreateCloudFrontOriginAccessIdentityInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"CloudFrontOriginAccessIdentityConfig"`
 }
 
+func (t CreateCloudFrontOriginAccessIdentityInput) PayloadField() string {
+	return "CloudFrontOriginAccessIdentityConfig"
+}
+
 // String returns the string representation
 func (s CreateCloudFrontOriginAccessIdentityInput) String() string {
 	return awsutil.Prettify(s)
@@ -1029,6 +1033,10 @@ type metadataCreateCloudFrontOriginAccessIdentityOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"CloudFrontOriginAccessIdentity"`
 }
 
+func (t CreateCloudFrontOriginAccessIdentityOutput) PayloadField() string {
+	return "CloudFrontOriginAccessIdentity"
+}
+
 // String returns the string representation
 func (s CreateCloudFrontOriginAccessIdentityOutput) String() string {
 	return awsutil.Prettify(s)
@@ -1049,6 +1057,10 @@ type CreateDistributionInput struct {
 
 type metadataCreateDistributionInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"DistributionConfig"`
+}
+
+func (t CreateDistributionInput) PayloadField() string {
+	return "DistributionConfig"
 }
 
 // String returns the string representation
@@ -1080,6 +1092,10 @@ type metadataCreateDistributionOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Distribution"`
 }
 
+func (t CreateDistributionOutput) PayloadField() string {
+	return "Distribution"
+}
+
 // String returns the string representation
 func (s CreateDistributionOutput) String() string {
 	return awsutil.Prettify(s)
@@ -1103,6 +1119,10 @@ type CreateInvalidationInput struct {
 
 type metadataCreateInvalidationInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"InvalidationBatch"`
+}
+
+func (t CreateInvalidationInput) PayloadField() string {
+	return "InvalidationBatch"
 }
 
 // String returns the string representation
@@ -1131,6 +1151,10 @@ type metadataCreateInvalidationOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Invalidation"`
 }
 
+func (t CreateInvalidationOutput) PayloadField() string {
+	return "Invalidation"
+}
+
 // String returns the string representation
 func (s CreateInvalidationOutput) String() string {
 	return awsutil.Prettify(s)
@@ -1151,6 +1175,10 @@ type CreateStreamingDistributionInput struct {
 
 type metadataCreateStreamingDistributionInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"StreamingDistributionConfig"`
+}
+
+func (t CreateStreamingDistributionInput) PayloadField() string {
+	return "StreamingDistributionConfig"
 }
 
 // String returns the string representation
@@ -1180,6 +1208,10 @@ type CreateStreamingDistributionOutput struct {
 
 type metadataCreateStreamingDistributionOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"StreamingDistribution"`
+}
+
+func (t CreateStreamingDistributionOutput) PayloadField() string {
+	return "StreamingDistribution"
 }
 
 // String returns the string representation
@@ -1882,6 +1914,10 @@ type metadataGetCloudFrontOriginAccessIdentityConfigOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"CloudFrontOriginAccessIdentityConfig"`
 }
 
+func (t GetCloudFrontOriginAccessIdentityConfigOutput) PayloadField() string {
+	return "CloudFrontOriginAccessIdentityConfig"
+}
+
 // String returns the string representation
 func (s GetCloudFrontOriginAccessIdentityConfigOutput) String() string {
 	return awsutil.Prettify(s)
@@ -1928,6 +1964,10 @@ type GetCloudFrontOriginAccessIdentityOutput struct {
 
 type metadataGetCloudFrontOriginAccessIdentityOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"CloudFrontOriginAccessIdentity"`
+}
+
+func (t GetCloudFrontOriginAccessIdentityOutput) PayloadField() string {
+	return "CloudFrontOriginAccessIdentity"
 }
 
 // String returns the string representation
@@ -1977,6 +2017,10 @@ type metadataGetDistributionConfigOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"DistributionConfig"`
 }
 
+func (t GetDistributionConfigOutput) PayloadField() string {
+	return "DistributionConfig"
+}
+
 // String returns the string representation
 func (s GetDistributionConfigOutput) String() string {
 	return awsutil.Prettify(s)
@@ -2022,6 +2066,10 @@ type GetDistributionOutput struct {
 
 type metadataGetDistributionOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Distribution"`
+}
+
+func (t GetDistributionOutput) PayloadField() string {
+	return "Distribution"
 }
 
 // String returns the string representation
@@ -2071,6 +2119,10 @@ type metadataGetInvalidationOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Invalidation"`
 }
 
+func (t GetInvalidationOutput) PayloadField() string {
+	return "Invalidation"
+}
+
 // String returns the string representation
 func (s GetInvalidationOutput) String() string {
 	return awsutil.Prettify(s)
@@ -2116,6 +2168,10 @@ type GetStreamingDistributionConfigOutput struct {
 
 type metadataGetStreamingDistributionConfigOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"StreamingDistributionConfig"`
+}
+
+func (t GetStreamingDistributionConfigOutput) PayloadField() string {
+	return "StreamingDistributionConfig"
 }
 
 // String returns the string representation
@@ -2164,6 +2220,10 @@ type GetStreamingDistributionOutput struct {
 
 type metadataGetStreamingDistributionOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"StreamingDistribution"`
+}
+
+func (t GetStreamingDistributionOutput) PayloadField() string {
+	return "StreamingDistribution"
 }
 
 // String returns the string representation
@@ -2424,6 +2484,10 @@ type metadataListCloudFrontOriginAccessIdentitiesOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"CloudFrontOriginAccessIdentityList"`
 }
 
+func (t ListCloudFrontOriginAccessIdentitiesOutput) PayloadField() string {
+	return "CloudFrontOriginAccessIdentityList"
+}
+
 // String returns the string representation
 func (s ListCloudFrontOriginAccessIdentitiesOutput) String() string {
 	return awsutil.Prettify(s)
@@ -2483,6 +2547,10 @@ type metadataListDistributionsByWebACLIdOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"DistributionList"`
 }
 
+func (t ListDistributionsByWebACLIdOutput) PayloadField() string {
+	return "DistributionList"
+}
+
 // String returns the string representation
 func (s ListDistributionsByWebACLIdOutput) String() string {
 	return awsutil.Prettify(s)
@@ -2533,6 +2601,10 @@ type ListDistributionsOutput struct {
 
 type metadataListDistributionsOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"DistributionList"`
+}
+
+func (t ListDistributionsOutput) PayloadField() string {
+	return "DistributionList"
 }
 
 // String returns the string representation
@@ -2591,6 +2663,10 @@ type metadataListInvalidationsOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"InvalidationList"`
 }
 
+func (t ListInvalidationsOutput) PayloadField() string {
+	return "InvalidationList"
+}
+
 // String returns the string representation
 func (s ListInvalidationsOutput) String() string {
 	return awsutil.Prettify(s)
@@ -2640,6 +2716,10 @@ type ListStreamingDistributionsOutput struct {
 
 type metadataListStreamingDistributionsOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"StreamingDistributionList"`
+}
+
+func (t ListStreamingDistributionsOutput) PayloadField() string {
+	return "StreamingDistributionList"
 }
 
 // String returns the string representation
@@ -3367,6 +3447,10 @@ type metadataUpdateCloudFrontOriginAccessIdentityInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"CloudFrontOriginAccessIdentityConfig"`
 }
 
+func (t UpdateCloudFrontOriginAccessIdentityInput) PayloadField() string {
+	return "CloudFrontOriginAccessIdentityConfig"
+}
+
 // String returns the string representation
 func (s UpdateCloudFrontOriginAccessIdentityInput) String() string {
 	return awsutil.Prettify(s)
@@ -3390,6 +3474,10 @@ type UpdateCloudFrontOriginAccessIdentityOutput struct {
 
 type metadataUpdateCloudFrontOriginAccessIdentityOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"CloudFrontOriginAccessIdentity"`
+}
+
+func (t UpdateCloudFrontOriginAccessIdentityOutput) PayloadField() string {
+	return "CloudFrontOriginAccessIdentity"
 }
 
 // String returns the string representation
@@ -3421,6 +3509,10 @@ type metadataUpdateDistributionInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"DistributionConfig"`
 }
 
+func (t UpdateDistributionInput) PayloadField() string {
+	return "DistributionConfig"
+}
+
 // String returns the string representation
 func (s UpdateDistributionInput) String() string {
 	return awsutil.Prettify(s)
@@ -3444,6 +3536,10 @@ type UpdateDistributionOutput struct {
 
 type metadataUpdateDistributionOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Distribution"`
+}
+
+func (t UpdateDistributionOutput) PayloadField() string {
+	return "Distribution"
 }
 
 // String returns the string representation
@@ -3475,6 +3571,10 @@ type metadataUpdateStreamingDistributionInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"StreamingDistributionConfig"`
 }
 
+func (t UpdateStreamingDistributionInput) PayloadField() string {
+	return "StreamingDistributionConfig"
+}
+
 // String returns the string representation
 func (s UpdateStreamingDistributionInput) String() string {
 	return awsutil.Prettify(s)
@@ -3498,6 +3598,10 @@ type UpdateStreamingDistributionOutput struct {
 
 type metadataUpdateStreamingDistributionOutput struct {
 	SDKShapeTraits bool `type:"structure" payload:"StreamingDistribution"`
+}
+
+func (t UpdateStreamingDistributionOutput) PayloadField() string {
+	return "StreamingDistribution"
 }
 
 // String returns the string representation

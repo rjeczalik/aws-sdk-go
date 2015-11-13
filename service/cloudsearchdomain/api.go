@@ -784,6 +784,10 @@ type metadataUploadDocumentsInput struct {
 	SDKShapeTraits bool `type:"structure" payload:"Documents"`
 }
 
+func (t UploadDocumentsInput) PayloadField() string {
+	return "Documents"
+}
+
 // String returns the string representation
 func (s UploadDocumentsInput) String() string {
 	return awsutil.Prettify(s)

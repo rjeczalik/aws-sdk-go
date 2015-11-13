@@ -863,6 +863,10 @@ type metadataInputService8TestShapeInputService8TestCaseOperation1Input struct {
 	SDKShapeTraits bool `type:"structure" payload:"Body"`
 }
 
+func (t InputService8TestShapeInputService8TestCaseOperation1Input) PayloadField() string {
+	return "Body"
+}
+
 type InputService8TestShapeInputService8TestCaseOperation1Output struct {
 	metadataInputService8TestShapeInputService8TestCaseOperation1Output `json:"-" xml:"-"`
 }
@@ -959,6 +963,10 @@ type InputService9TestShapeInputService9TestCaseOperation1Input struct {
 
 type metadataInputService9TestShapeInputService9TestCaseOperation1Input struct {
 	SDKShapeTraits bool `type:"structure" payload:"Foo"`
+}
+
+func (t InputService9TestShapeInputService9TestCaseOperation1Input) PayloadField() string {
+	return "Foo"
 }
 
 type InputService9TestShapeInputService9TestCaseOperation1Output struct {
@@ -1101,6 +1109,10 @@ type metadataInputService10TestShapeInputShape struct {
 	SDKShapeTraits bool `type:"structure" payload:"Foo"`
 }
 
+func (t InputService10TestShapeInputShape) PayloadField() string {
+	return "Foo"
+}
+
 //The service client's operations are safe to be used concurrently.
 // It is not safe to mutate any of the client's properties though.
 type InputService11ProtocolTest struct {
@@ -1241,6 +1253,10 @@ type InputService11TestShapeInputShape struct {
 
 type metadataInputService11TestShapeInputShape struct {
 	SDKShapeTraits bool `type:"structure" payload:"Foo"`
+}
+
+func (t InputService11TestShapeInputShape) PayloadField() string {
+	return "Foo"
 }
 
 //The service client's operations are safe to be used concurrently.
