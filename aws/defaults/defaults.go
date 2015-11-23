@@ -18,6 +18,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/credentials/ec2rolecreds"
 	"github.com/aws/aws-sdk-go/aws/ec2metadata"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/private/endpoints"
 )
 
@@ -93,3 +94,6 @@ func CredChain(cfg *aws.Config, handlers request.Handlers) *credentials.Credenti
 			},
 		})
 }
+
+// EC2MetadataClient is a default client used for querying EC2 metadata.
+var EC2MetadataClient = ec2metadata.New(session.New(aws.NewConfig()))

@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/aws/client"
 	"github.com/aws/aws-sdk-go/aws/credentials"
+	"github.com/aws/aws-sdk-go/aws/defaults"
 	"github.com/aws/aws-sdk-go/aws/ec2metadata"
 )
 
@@ -33,7 +34,8 @@ import (
 type EC2RoleProvider struct {
 	credentials.Expiry
 
-	// Required EC2Metadata client to use when connecting to EC2 metadata service.
+	// Client is a EC2Metadata client to use when connecting to EC2 metadata service.
+	// When nil, default one is used.
 	Client *ec2metadata.EC2Metadata
 
 	// ExpiryWindow will allow the credentials to trigger refreshing prior to
@@ -82,7 +84,7 @@ func NewCredentialsWithClient(client *ec2metadata.EC2Metadata, options ...func(*
 // Error will be returned if the request fails, or unable to extract
 // the desired credentials.
 func (m *EC2RoleProvider) Retrieve() (credentials.Value, error) {
-	credsList, err := requestCredList(m.Client)
+	credsList, err := requestCredList(m.client())
 	if err != nil {
 		return credentials.Value{}, err
 	}
@@ -104,6 +106,13 @@ func (m *EC2RoleProvider) Retrieve() (credentials.Value, error) {
 		SecretAccessKey: roleCreds.SecretAccessKey,
 		SessionToken:    roleCreds.Token,
 	}, nil
+}
+
+func (m *EC2RoleProvider) client() *ec2metadata.EC2Metadata {
+	if m.Client != nil {
+		return m.Client
+	}
+	return defaults.EC2MetadataClient
 }
 
 // A ec2RoleCredRespBody provides the shape for unmarshalling credential
